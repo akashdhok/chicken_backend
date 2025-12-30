@@ -1,9 +1,9 @@
-import Admin from "../models/admin.model";
+import Admin from "../models/admin.model.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
-import User from "../models/user.model";
-import DeliveryBoy from "../models/deliveryBoy.model";
-import Product from "../models/product.model";
+import User from "../models/user.model.js";
+import DeliveryBoy from "../models/deliveryBoy.model.js";
+import Product from "../models/product.model.js";
 
 
 export const adminRegister = async (req, res) => {

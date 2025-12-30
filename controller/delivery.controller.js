@@ -1,4 +1,4 @@
-import DeliveryBoy from "../models/deliveryBoy.model";
+import DeliveryBoy from "../models/deliveryBoy.model.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 

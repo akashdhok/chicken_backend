@@ -8,6 +8,9 @@ import DbConnect from "./config/db.connect.js"
 const app = express();
 dotenv.config();
 const Port = process.env.PORT || 3000
+import userRoute from "./routes/user.routes.js"
+import adminRoute from "./routes/admin.routes.js"
+import deliveryRoute from "./routes/delivery.routes.js"
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended : true}))
@@ -22,6 +25,9 @@ app.use(cors({
 
 
 app.use(morgan('dev'))
+app.use("/api/user" , userRoute)
+app.use("/api/admin" , adminRoute)
+app.use("/api/delivery" , deliveryRoute)
 
 
 DbConnect()

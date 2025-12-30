@@ -11,7 +11,8 @@ import {
   deleteProduct,
   changeAdminPassword,
   createProduct,
-} from "../controller/admin.controller";
+} from "../controller/admin.controller.js";
+import adminAuth from "../middleware/adminAuth.js";
 const router = express.Router();
 
 router.post("/register", adminRegister);

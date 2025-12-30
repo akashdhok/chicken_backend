@@ -1,5 +1,5 @@
 import express from "express";
-import { changePassword, getDeliveryBoyProfile, loginDeliveryBoy, registerDeliveryBoy, updateAvailability } from "../controller/delivery.controller";
+import { changePassword, getDeliveryBoyProfile, loginDeliveryBoy, registerDeliveryBoy, updateAvailability } from "../controller/delivery.controller.js";
 const router = express.Router();
 
 router.post("/register", registerDeliveryBoy);
