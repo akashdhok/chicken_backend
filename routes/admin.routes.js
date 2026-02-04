@@ -11,6 +11,7 @@ import {
   deleteProduct,
   changeAdminPassword,
   createProduct,
+  getProductById,
 } from "../controller/admin.controller.js";
 import adminAuth from "../middleware/adminAuth.js";
 const router = express.Router();
@@ -22,10 +23,11 @@ router.get("/users", getAllUsers);
 router.get("/delivery-boys", getAllDeliveryBoys);
 router.get("/delivery-boys/available", getAvailableDeliveryBoys);
 router.get("/products", getAllProducts);
+router.get("/products/:productId",getProductById );
 router.post("/change-password", changeAdminPassword);
-router.post("/products", createProduct);
+router.post("/create-product", createProduct);
 router.patch("/products/:productId/toggle-status", toggleProductStatus);
-router.delete("/products/:productId", deleteProduct);
+// router.delete("/products/:productId", deleteProduct);
 
 
 

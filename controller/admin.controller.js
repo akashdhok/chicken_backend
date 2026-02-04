@@ -156,9 +156,9 @@ export const changeAdminPassword = async (req, res) => {
 
 export const createProduct = async (req, res) => {
   try {
-    const { name, description, price, category, stock } = req.body;
+    const { name, description, price, category, stock ,imageUrl } = req.body;
 
-    if (!name || !description || !price || !category || !stock) {
+    if (!name || !description || !price || !category || !stock||!imageUrl) {
       return res.status(400).json({ message: "All fields are required" });
     }
 
@@ -168,6 +168,7 @@ export const createProduct = async (req, res) => {
       price,
       category,
       stock,
+      imageUrl
     });
 
     await newProduct.save();
@@ -192,6 +193,26 @@ export const getAllProducts = async (req, res) => {
       .json({ message: "Error fetching products", error: error.message });
   }
 };
+
+export const getProductById = async (req, res) => {
+  try {
+    const {productId} = req.params;
+    console.log(productId);
+    const product = await Product.findById(productId);
+    console.log(product);
+
+    if (!product) {
+      return res.status(404).json({ message: "Product not found" });
+    }
+    return res.status(200).json({ product });
+  } catch (error) {
+    console.error(error);
+    return res
+      .status(500)
+      .json({ message: "Error fetching product", error: error.message });
+  }
+};  
+
 
 export const toggleProductStatus = async (req, res) => {
   try {
